@@ -1,6 +1,6 @@
 $out_root/
 {
-  include sol/
+  include sol2/
 }
 
-export $out_root/sol/$import.target
+export $out_root/sol2/$import.target

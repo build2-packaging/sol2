@@ -1,4 +1,4 @@
-project = sol
+project = sol2
 
 using version
 using config
