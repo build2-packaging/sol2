@@ -1,6 +1,7 @@
 cxx.std = latest
 
 using cxx
+using c
 
 hxx{*}: extension = hpp
 ixx{*}: extension = ipp

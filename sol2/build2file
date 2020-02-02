@@ -2,8 +2,8 @@ int_libs = # Interface dependencies.
 imp_libs = # Implementation dependencies.
 import int_libs += lua%lib{lua}
 
-lib{sol2}: {hxx ixx txx}{** -version} $imp_libs $int_libs
-lib{sol2}: $include_dir/{hxx ixx txx}{**}
+lib{sol2}: {hxx ixx txx h}{** -version} $imp_libs $int_libs
+lib{sol2}: $include_dir/{hxx ixx txx h}{**}
 
 ## The following is commented because sol2 provides it's own version file.
 # Include the generated version header into the distribution (so that we don't
@@ -32,7 +32,7 @@ lib{sol2}:
 # Install into the sol/ subdirectory of, say, /usr/include/
 # recreating subdirectories.
 #
-{hxx ixx txx}{*}:
+{hxx ixx txx h}{*}:
 {
   install         = include/sol/
   install.subdirs = true
@@ -40,7 +40,7 @@ lib{sol2}:
 
 ../upstream/include/sol/
 {
-  {hxx ixx txx}{*}:
+  {hxx ixx txx h}{*}:
   {
     install         = include/sol/
     install.subdirs = true
