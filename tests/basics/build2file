@@ -1,0 +1,3 @@
+import libs = sol%lib{sol}
+
+exe{driver}: {hxx ixx txx cxx}{**} $libs testscript{**}

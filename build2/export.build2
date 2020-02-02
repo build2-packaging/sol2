@@ -1,0 +1,6 @@
+$out_root/
+{
+  include sol/
+}
+
+export $out_root/sol/$import.target
