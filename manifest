@@ -1,11 +1,15 @@
 : 1
 name: sol
-version: 0.1.0-a.0.z
-summary: sol C++ library
-license: proprietary
-description-file: README.md
-url: https://example.org/sol
-email: mjklaim@gmail.com
+version: 3.3.0-a.0.z
+summary: "`sol` is a C++ library binding to Lua."
+license: MIT
+description-file: upstream/README.md
+url: https://github.com/ThePhD/sol2
+
+email: phdofthehouse@gmail.com
+package-email: mjklaim@gmail.com
+
 depends: * build2 >= 0.12.0
 depends: * bpkg >= 0.12.0
-#depends: libhello ^1.0.0
+
+depends: lua ^5.1.0
