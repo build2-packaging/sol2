@@ -1,6 +1,6 @@
 : 1
 name: sol2
-version: 3.3.0-a.0.z
+version: 3.2.0-a.0.z
 summary: "`sol2` is a C++ library binding to Lua."
 license: MIT
 description-file: upstream/README.md
