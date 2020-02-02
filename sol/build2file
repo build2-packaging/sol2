@@ -1,8 +1,9 @@
 int_libs = # Interface dependencies.
 imp_libs = # Implementation dependencies.
-#import imp_libs += libhello%lib{hello}
+import int_libs += lua%lib{lua}
 
 lib{sol}: {hxx ixx txx}{** -version} hxx{version} $imp_libs $int_libs
+lib{sol}: $include_dir/{hxx ixx txx}{**}
 
 # Include the generated version header into the distribution (so that we don't
 # pick up an installed one) and don't remove it when cleaning in src (so that
@@ -16,13 +17,13 @@ hxx{version}: in{version} $src_root/manifest
 
 # Build options.
 #
-cxx.poptions =+ "-I$out_root" "-I$src_root"
+cxx.poptions =+ "-I$include_dir" "-I$out_root" "-I$src_root"
 
 # Export options.
 #
 lib{sol}:
 {
-  cxx.export.poptions = "-I$out_root" "-I$src_root"
+  cxx.export.poptions = "-I$include_dir" "-I$out_root" "-I$src_root"
   cxx.export.libs = $int_libs
 }
 
@@ -33,4 +34,13 @@ lib{sol}:
 {
   install         = include/sol/
   install.subdirs = true
+}
+
+../upstream/include/sol/
+{
+  {hxx ixx txx}{*}:
+  {
+    install         = include/sol/
+    install.subdirs = true
+  }
 }

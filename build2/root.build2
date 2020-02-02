@@ -10,3 +10,8 @@ cxx{*}: extension = cpp
 # The test target for cross-testing (running tests under Wine, etc).
 #
 test.target = $cxx.target
+
+upstream_dir = $src_root/upstream
+include_dir = $upstream_dir/include
+tests_dir = $upstream_dir/tests
+examples_dir = $upstream_dir/examples
