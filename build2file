@@ -1,6 +1,6 @@
 ./ : {*/ -build2/ -upstream/} manifest
 
-./ : upstream/doc{README.md} upstream/docs/doc{**}
+./ : upstream/doc{README.md} upstream/docs/doc{** -presentations/*}
 
 # Don't install tests.
 #
