@@ -1,4 +1,4 @@
 [submodule "upstream"]
 	path = upstream
 	url = https://github.com/ThePhD/sol2.git
-	branch = develop
+	branch = main
