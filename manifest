@@ -13,3 +13,6 @@ depends: * build2 >= 0.12.0
 depends: * bpkg >= 0.12.0
 
 depends: lua ^5.0.0
+
+
+builds: all
