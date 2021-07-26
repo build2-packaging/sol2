@@ -9,10 +9,11 @@ url: https://github.com/ThePhD/sol2
 email: phdofthehouse@gmail.com
 package-email: mjklaim@gmail.com
 
+requires: c++17
+
 depends: * build2 >= 0.12.0
 depends: * bpkg >= 0.12.0
 
 depends: lua ^5.0.0
 
-
-builds: all
+builds: default experimental ; Only modern compilers are supported.
