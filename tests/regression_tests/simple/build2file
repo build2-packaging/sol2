@@ -1,9 +1,11 @@
 
-import catch2 = catch2%lib{catch2}
-import sol2 = sol2%lib{sol2}
+import dependencies = catch2%lib{catch2} sol2%lib{sol2}
 
-./ : exe{regression_tests} : source/{hxx cxx}{**} $catch2 $sol2
+./ : exe{tests_regression_tests_simple} : source/{hxx cxx}{**} $dependencies
+./ : exe{tests_regression_tests_simple_all_safeties_on} : source/{hxx cxx}{**} $dependencies
 
 cc.poptions += "-I$src_base/source"
+exe{tests_regression_tests_simple_all_safeties_on} : cc.poptions += -DSOL_ALL_SAFETIES_ON=1
+
 
 
