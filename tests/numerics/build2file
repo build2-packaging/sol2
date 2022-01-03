@@ -1,0 +1,11 @@
+
+import dependencies = catch2%lib{catch2} sol2%lib{sol2}
+
+./ : exe{tests_numerics} : source/{hxx cxx}{**} $dependencies
+./ : exe{tests_numerics_all_safeties_on} : source/{hxx cxx}{**} $dependencies
+
+exe{tests_numerics_all_safeties_on} : cc.poptions += -DSOL_ALL_SAFETIES_ON=1
+
+
+
+
