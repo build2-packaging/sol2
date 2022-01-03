@@ -15,5 +15,6 @@ depends: * build2 >= 0.12.0
 depends: * bpkg >= 0.12.0
 
 depends: lua ^5.0.0
+depends: catch2 ^2.13.4
 
 builds: default experimental ; Only modern compilers are supported.
