@@ -15,3 +15,8 @@ exe{*}: test = true
 #
 test.target = $cxx.target
 
+if(cxx == 'msvc')
+{
+    cc.poptions += -D_CRT_SECURE_NO_WARNINGS -D_CRT_SECURE_NO_DEPRECATE
+    cc.coptions += /bigobj /W4
+}
