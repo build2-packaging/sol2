@@ -1,0 +1,9 @@
+
+import catch2 = catch2%lib{catch2}
+import sol2 = sol2%lib{sol2}
+
+./ : exe{regression_tests} : source/{hxx cxx}{**} $catch2 $sol2
+
+cc.poptions += "-I$src_base/source"
+
+
