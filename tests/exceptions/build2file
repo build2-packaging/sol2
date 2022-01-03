@@ -1,0 +1,12 @@
+
+import dependencies = catch2%lib{catch2} sol2%lib{sol2}
+
+./ : exe{tests_exceptions} : source/{hxx cxx}{**} $dependencies
+./ : exe{tests_exceptions_all_safeties_on} : source/{hxx cxx}{**} $dependencies
+./ : exe{tests_exceptions_always_unsafe} : source/{hxx cxx}{**} $dependencies
+
+exe{tests_exceptions_all_safeties_on} : cc.poptions += -DSOL_ALL_SAFETIES_ON=1
+exe{tests_exceptions_always_unsafe} : cc.poptions += -DSOL_EXCEPTIONS_ALWAYS_UNSAFE=0
+
+
+
