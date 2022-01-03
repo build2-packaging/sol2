@@ -15,4 +15,3 @@ exe{*}: test = true
 #
 test.target = $cxx.target
 
-

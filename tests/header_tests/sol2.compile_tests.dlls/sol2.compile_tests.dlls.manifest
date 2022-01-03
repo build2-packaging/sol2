@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<assembly xmlns='urn:schemas-microsoft-com:asm.v1'
+          manifestVersion='1.0'>
+  <assemblyIdentity name='sol2.compile_tests.dlls'
+                    type='win32'
+                    processorArchitecture='amd64'
+                    version='0.0.0.0'/>
+  <file name='lua.dll'/>
+</assembly>
