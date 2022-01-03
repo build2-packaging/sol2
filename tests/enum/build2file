@@ -1,6 +1,6 @@
 import dependencies = catch2%lib{catch2} sol2%lib{sol2}
 
-./ : exe{tests_config_function_pointers} : source/cxx{**} $dependencies
+./ : exe{tests_enum} : source/cxx{**} $dependencies
 
 cc.poptions += -DSOL_ALL_SAFETIES_ON=1
 
