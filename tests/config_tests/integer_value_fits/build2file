@@ -1,0 +1,12 @@
+import dependencies = catch2%lib{catch2} sol2%lib{sol2}
+
+./ : exe{tests_config_integer_value_fits} : source/cxx{**} $dependencies
+./ : exe{tests_config_integer_value_fits_safeties_on} : source/cxx{**} $dependencies
+
+cc.poptions += -DSOL_ALL_INTEGER_VALUES_FIT=1
+exe{tests_config_function_pointers_safeties_on} : cc.poptions += -DSOL_ALL_SAFETIES_ON=1
+
+
+
+
+
