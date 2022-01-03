@@ -1,0 +1,10 @@
+
+import catch2 = catch2%lib{catch2}
+import sol2 = sol2%lib{sol2}
+
+./ : exe{config_function_pointers_tests} : cxx{**} $catch2 $sol2
+
+cc.poptions += -DSOL_GET_FUNCTION_POINTER_UNSAFE=1 -DSOL_ALL_SAFETIES_ON=1
+
+
+
