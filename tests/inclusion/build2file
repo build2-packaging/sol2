@@ -1,0 +1,16 @@
+
+import dependencies = catch2%lib{catch2} sol2%lib{sol2}
+
+target_varients = SOL_ALL_SAFETIES_ON SOL_USE_INTEROP SOL_STRINGS_ARE_NUMBERS
+
+for variant : $target_varients
+{
+    suffix = $string.lcase($variant)
+    test_name = "tests_inclusion_$suffix"
+    ./ : exe{$test_name} : source/{hxx cxx}{**} $dependencies
+    exe{$test_name} : cc.poptions += "-D$variant=1"
+}
+
+
+
+
