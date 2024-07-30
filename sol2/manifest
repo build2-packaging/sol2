@@ -1,0 +1,25 @@
+: 1
+name: sol2
+version: 3.3.1+1
+type: lib,binless
+language: c++
+summary: C++ library binding to Lua
+license: MIT
+
+description-file: README.md
+url: https://github.com/ThePhD/sol2
+doc-url: https://sol2.readthedocs.io/en/latest/
+src-url: https://github.com/ThePhD/sol2
+email: phdofthehouse@gmail.com
+
+package-description-file: PACKAGE-README.md
+package-url: https://github.com/build2-packaging/sol2
+package-email: packaging@build2.org
+
+depends: * build2 >= 0.17.0
+depends: * bpkg >= 0.17.0
+
+depends: lua ^5.1.0
+
+# tests: sol2-tests == $
+examples: sol2-examples == $

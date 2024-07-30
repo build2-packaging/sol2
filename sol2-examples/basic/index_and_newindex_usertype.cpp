@@ -1,0 +1,1 @@
+../../upstream/examples/source/index_and_newindex_usertype.cpp

@@ -1,0 +1,26 @@
+cxx.std = latest
+
+using cxx
+
+hxx{*}: extension = hpp
+cxx{*}: extension = cpp
+
+hxx{*}: cxx.importable = false
+
+test.target = $cxx.target
+
+exe{*}: test = true
+
+# Import Sol2 by default.
+#
+import sol2 = sol2%lib{sol2}
+
+# Import Catch2 by default.
+#
+import catch2 = catch2%lib{catch2}
+
+# Default Build Options
+#
+cxx.poptions += -DSOL_PRINT_ERRORS=1 -DSOL_ALL_SAFETIES_ON=1
+if ($cxx.target.system != 'win32-msvc')
+  cxx.libs += -pthread

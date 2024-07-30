@@ -1,0 +1,1 @@
+exe{tests}: {hxx cxx}{**} $sol2 $catch2

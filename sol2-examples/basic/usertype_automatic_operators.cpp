@@ -1,0 +1,1 @@
+../../upstream/examples/source/usertype_automatic_operators.cpp

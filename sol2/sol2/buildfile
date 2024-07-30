@@ -1,0 +1,34 @@
+# Dependencies
+#
+import libs = lua%lib{lua}
+
+# Headers and Sources
+#
+lib{sol2}: sol/{hxx h}{**} $libs
+
+# Workaround for Clang 18 bug has been applied to the
+# hard-copied `sol/function_types_stateless.hpp` file.
+#
+# See: https://github.com/ThePhD/sol2/issues/1581
+#
+lib{sol2}: sol/file{function_types_stateless.hpp.orig}
+
+# Build options.
+#
+cxx.poptions =+ "-I$src_base"
+
+# Export options.
+#
+lib{sol2}:
+{
+  cxx.export.poptions = "-I$src_base"
+  cxx.export.libs = $libs
+}
+
+# Installation
+#
+{hxx h}{*}:
+{
+  install         = include/
+  install.subdirs = true
+}

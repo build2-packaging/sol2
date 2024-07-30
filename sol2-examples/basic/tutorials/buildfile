@@ -1,0 +1,7 @@
+./: {*/}
+
+for x: cxx{*}
+{
+  n = $name($x)
+  ./: exe{$n}: $x $sol2 testscript
+}

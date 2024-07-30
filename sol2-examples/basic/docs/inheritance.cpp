@@ -1,0 +1,1 @@
+../../../upstream/examples/source/docs/inheritance.cpp

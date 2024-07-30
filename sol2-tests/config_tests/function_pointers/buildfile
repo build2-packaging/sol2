@@ -1,0 +1,3 @@
+exe{tests}: {hxx cxx}{**} $sol2 $catch2
+
+cxx.poptions += -DSOL_GET_FUNCTION_POINTER_UNSAFE=1

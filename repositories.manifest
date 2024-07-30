@@ -1,7 +1,6 @@
 : 1
-summary: sol project repository
+summary: sol2 project repository
 
-# Get lua from the main OSS repository.
 :
 role: prerequisite
 location: https://pkg.cppget.org/1/stable

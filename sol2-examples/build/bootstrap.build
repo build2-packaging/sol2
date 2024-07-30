@@ -1,0 +1,6 @@
+project = sol2-examples
+
+using version
+using config
+using test
+using dist
