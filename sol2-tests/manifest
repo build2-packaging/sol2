@@ -1,0 +1,24 @@
+: 1
+name: sol2-tests
+version: 3.3.1+1
+type: exe
+language: c++
+summary: C++ library binding to Lua, tests
+license: MIT
+
+description-file: README.md
+url: https://github.com/ThePhD/sol2
+doc-url: https://sol2.readthedocs.io/en/latest/
+src-url: https://github.com/ThePhD/sol2
+email: phdofthehouse@gmail.com
+
+package-description-file: PACKAGE-README.md
+package-url: https://github.com/build2-packaging/sol2
+package-email: packaging@build2.org
+
+depends: * build2 >= 0.17.0
+depends: * bpkg >= 0.17.0
+
+depends: sol2 == $
+
+depends: catch2 ^3.3.2

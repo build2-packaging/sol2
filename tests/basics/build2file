@@ -1,3 +1,0 @@
-import libs = sol2%lib{sol2}
-
-exe{driver}: {hxx ixx txx cxx}{**} $libs testscript{**}

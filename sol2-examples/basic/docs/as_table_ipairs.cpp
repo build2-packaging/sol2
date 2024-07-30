@@ -1,0 +1,1 @@
+../../../upstream/examples/source/docs/as_table_ipairs.cpp

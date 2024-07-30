@@ -1,0 +1,1 @@
+../../../upstream/examples/source/docs/as_function.cpp

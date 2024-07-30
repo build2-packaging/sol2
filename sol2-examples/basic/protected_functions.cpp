@@ -1,0 +1,1 @@
+../../upstream/examples/source/protected_functions.cpp

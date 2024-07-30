@@ -1,0 +1,1 @@
+../../../upstream/include/sol/stack_check_qualified.hpp
