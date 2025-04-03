@@ -1,1 +1,0 @@
-../../upstream/examples/source/self_from_lua.cpp

@@ -1,7 +1,29 @@
-./: {*/}
+import libs = \
+  sol2%lib{sol2} \
+  catch2%lib{catch2}
 
-for x: cxx{*}
+for t: examples/source/cxx{*}
 {
-  n = $name($x)
-  ./: exe{$n}: $x $sol2 testscript
+  n = $name($t)
+  ./: exe{$n}: $t $libs testscript
 }
+
+# interop/ tests require external libraries
+for d: dir{examples/**/source/ -examples/interop/**/source/}
+{
+  t = $name($directory($d))
+  root = $directory($d)/source/
+  ./: exe{$t}: $root/{hxx cxx}{**} $libs testscript
+  {
+    # some tests have extra includes
+    cxx.poptions += "-I$src_base/$root/../include"
+  }
+}
+
+# this test crashes
+exe{require_dll_example}: test = false
+
+cxx.poptions += -DSOL_PRINT_ERRORS=1 -DSOL_ALL_SAFETIES_ON=1
+
+if ($cxx.target.system != 'win32-msvc')
+  cxx.libs += -pthread

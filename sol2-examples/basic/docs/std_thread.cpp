@@ -1,1 +1,0 @@
-../../../upstream/examples/source/docs/std_thread.cpp

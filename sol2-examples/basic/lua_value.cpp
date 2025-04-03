@@ -1,1 +1,0 @@
-../../upstream/examples/source/lua_value.cpp

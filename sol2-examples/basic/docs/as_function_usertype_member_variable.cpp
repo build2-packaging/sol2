@@ -1,1 +1,0 @@
-../../../upstream/examples/source/docs/as_function_usertype_member_variable.cpp

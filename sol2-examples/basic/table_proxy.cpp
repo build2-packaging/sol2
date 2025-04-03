@@ -1,1 +1,0 @@
-../../upstream/examples/source/table_proxy.cpp

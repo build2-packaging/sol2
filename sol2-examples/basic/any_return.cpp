@@ -1,1 +1,0 @@
-../../upstream/examples/source/any_return.cpp

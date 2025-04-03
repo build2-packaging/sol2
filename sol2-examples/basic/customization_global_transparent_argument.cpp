@@ -1,1 +1,0 @@
-../../upstream/examples/source/customization_global_transparent_argument.cpp

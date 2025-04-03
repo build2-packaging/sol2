@@ -1,1 +1,0 @@
-../../upstream/examples/source/metatable_key_low_level.cpp

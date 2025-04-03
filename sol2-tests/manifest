@@ -20,6 +20,4 @@ package-email: packaging@build2.org
 depends: * build2 >= 0.17.0
 depends: * bpkg >= 0.17.0
 
-depends: sol2 == $
-
 depends: catch2 ^3.3.2

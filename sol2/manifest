@@ -22,5 +22,5 @@ depends: * bpkg >= 0.17.0
 
 depends: lua ^5.1.0
 
-# tests: sol2-tests == $
+tests: sol2-tests == $
 examples: sol2-examples == $

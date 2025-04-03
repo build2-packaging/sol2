@@ -1,1 +1,0 @@
-../../upstream/examples/source/containers_as_table.cpp

@@ -1,1 +1,0 @@
-../../../upstream/examples/source/docs/coroutine_main.cpp

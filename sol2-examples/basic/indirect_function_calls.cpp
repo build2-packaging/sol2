@@ -1,1 +1,0 @@
-../../upstream/examples/source/indirect_function_calls.cpp

@@ -1,1 +1,0 @@
-../../../upstream/examples/source/docs/my_panic.cpp

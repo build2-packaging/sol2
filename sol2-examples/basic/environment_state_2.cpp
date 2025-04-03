@@ -1,1 +1,0 @@
-../../upstream/examples/source/environment_state_2.cpp

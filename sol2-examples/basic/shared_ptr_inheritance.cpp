@@ -1,1 +1,0 @@
-../../upstream/examples/source/shared_ptr_inheritance.cpp

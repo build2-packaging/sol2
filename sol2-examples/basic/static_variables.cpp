@@ -1,1 +1,0 @@
-../../upstream/examples/source/static_variables.cpp
