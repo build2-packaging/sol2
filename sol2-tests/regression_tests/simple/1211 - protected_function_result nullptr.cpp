@@ -1,1 +1,0 @@
-../../../upstream/tests/regression_tests/simple/source/1211 - protected_function_result nullptr.cpp

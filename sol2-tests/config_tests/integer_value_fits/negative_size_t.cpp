@@ -1,1 +1,0 @@
-../../../upstream/tests/config_tests/integer_value_fits/source/negative_size_t.cpp

@@ -1,1 +1,0 @@
-../../upstream/tests/lua_lifetime/source/main.cpp

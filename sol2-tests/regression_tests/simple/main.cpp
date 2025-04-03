@@ -1,1 +1,0 @@
-../../../upstream/tests/regression_tests/simple/source/main.cpp

@@ -1,1 +1,0 @@
-../../../upstream/tests/regression_tests/simple/source/1096 - functions binding wrong.cpp

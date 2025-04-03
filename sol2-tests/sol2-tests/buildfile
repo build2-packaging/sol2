@@ -1,0 +1,26 @@
+import libs = \
+  sol2%lib{sol2} \
+  catch2%lib{catch2}
+
+for d: dir{tests/**/source/ -tests/run_time/source/}
+{
+  t = $name($directory($d))
+  root = $directory($d)/source/
+  ./: exe{$t}: $root/{hxx cxx}{*} $libs testscript
+}
+
+exe{function_pointers}:
+{
+  cxx.poptions += -DSOL_GET_FUNCTION_POINTER_UNSAFE=1
+}
+
+exe{integer_value_fits}:
+{
+  cxx.poptions += -DSOL_ALL_INTEGER_VALUES_FIT=1
+}
+
+cxx.poptions += "-I$src_base/tests/run_time/source"
+cxx.poptions += -DSOL_PRINT_ERRORS=1 -DSOL_ALL_SAFETIES_ON=1
+
+if ($cxx.target.system != 'win32-msvc')
+  cxx.libs += -pthread

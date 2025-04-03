@@ -1,1 +1,0 @@
-../../../upstream/tests/regression_tests/simple/source/1072 - capture exception propagation.cpp

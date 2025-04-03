@@ -1,1 +1,0 @@
-../../../upstream/tests/regression_tests/simple/source/1095 - raw_get from global table fails.cpp

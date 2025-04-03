@@ -1,1 +1,0 @@
-../../upstream/tests/exceptions/source/functions.yielding.cpp

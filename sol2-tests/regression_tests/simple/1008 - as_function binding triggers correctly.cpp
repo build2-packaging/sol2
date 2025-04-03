@@ -1,1 +1,0 @@
-../../../upstream/tests/regression_tests/simple/source/1008 - as_function binding triggers correctly.cpp

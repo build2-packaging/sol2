@@ -1,1 +1,0 @@
-exe{tests}: source/{hxx cxx}{**} $sol2

@@ -1,1 +1,0 @@
-../../../upstream/tests/regression_tests/simple/source/1266 - add method in Lua 5.4 showing freelist.cpp

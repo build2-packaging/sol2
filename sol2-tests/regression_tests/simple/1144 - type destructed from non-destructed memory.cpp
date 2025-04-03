@@ -1,1 +1,0 @@
-../../../upstream/tests/regression_tests/simple/source/1144 - type destructed from non-destructed memory.cpp

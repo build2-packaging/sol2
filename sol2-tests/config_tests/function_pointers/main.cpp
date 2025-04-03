@@ -1,1 +1,0 @@
-../../../upstream/tests/config_tests/function_pointers/source/main.cpp
