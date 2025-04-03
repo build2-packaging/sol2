@@ -4,24 +4,26 @@ import libs = lua%lib{lua}
 
 # Headers and Sources
 #
-lib{sol2}: sol/{hxx h}{**} $libs
+lib{sol2}: patches/sol/{hxx h}{**} sol/{hxx h}{**} $libs
 
 # Workaround for Clang 18 bug has been applied to the
 # hard-copied `sol/function_types_stateless.hpp` file.
 #
 # See: https://github.com/ThePhD/sol2/issues/1581
 #
-lib{sol2}: sol/file{function_types_stateless.hpp.orig}
+lib{sol2}: patches/sol/file{function_types_stateless.hpp.orig}
 
 # Build options.
 #
-cxx.poptions =+ "-I$src_base"
+# Note:
+# ./patches/ must come first for correct include priority
+cxx.poptions =+ "-I$src_base/patches" "-I$src_base"
 
 # Export options.
 #
 lib{sol2}:
 {
-  cxx.export.poptions = "-I$src_base"
+  cxx.export.poptions = "-I$src_base/patches" "-I$src_base"
   cxx.export.libs = $libs
 }
 

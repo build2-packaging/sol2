@@ -1,1 +1,0 @@
-../../../upstream/include/sol/usertype_storage.hpp

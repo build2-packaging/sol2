@@ -1,1 +1,0 @@
-../../../upstream/include/sol/traits.hpp

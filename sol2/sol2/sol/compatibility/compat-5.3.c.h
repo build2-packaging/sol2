@@ -1,1 +1,0 @@
-../../../../upstream/include/sol/compatibility/compat-5.3.c.h

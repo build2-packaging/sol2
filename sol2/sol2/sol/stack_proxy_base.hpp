@@ -1,1 +1,0 @@
-../../../upstream/include/sol/stack_proxy_base.hpp

@@ -1,1 +1,0 @@
-../../../upstream/include/sol/stack_guard.hpp
