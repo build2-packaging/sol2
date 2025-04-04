@@ -4,7 +4,8 @@ import libs = lua%lib{lua}
 
 # Headers and Sources
 #
-lib{sol2}: patches/sol/{hxx h}{**} sol/{hxx h}{**} $libs
+lib{sol2}: patches/sol/{hxx h}{**} sol/{hxx h}{** -function_types_stateless} $libs
+lib{sol2}: sol/hxx{function_types_stateless}: include = false
 
 # Workaround for Clang 18 bug has been applied to the
 # hard-copied `sol/function_types_stateless.hpp` file.
