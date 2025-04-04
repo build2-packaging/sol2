@@ -1,6 +1,6 @@
 : 1
 name: sol2
-version: 3.5.0-a.0.z
+version: 3.5.0
 type: lib,binless
 language: c++
 project: sol2
