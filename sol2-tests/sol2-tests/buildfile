@@ -6,7 +6,7 @@ for d: dir{tests/**/source/ -tests/run_time/source/}
 {
   t = $name($directory($d))
   root = $directory($d)/source/
-  ./: exe{$t}: $root/{hxx cxx}{*} $libs testscript
+  ./: exe{$t}: $root/{hxx cxx}{*} tests/run_time/source/hxx{sol_test} $libs testscript
 }
 
 exe{function_pointers}:
