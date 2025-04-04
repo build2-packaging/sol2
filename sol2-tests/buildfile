@@ -1,6 +1,3 @@
-# According to 'upstream/tests/run_time/CMakeLists.txt',
-# run time tests are currently borked. This was confirmed.
-#
 ./ : {*/ -build/} manifest doc{*.md} legal{LICENSE.txt}
 
 tests/: install = false

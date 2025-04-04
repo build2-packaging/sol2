@@ -2,6 +2,9 @@ import libs = \
   sol2%lib{sol2} \
   catch2%lib{catch2}
 
+# According to 'upstream/tests/run_time/CMakeLists.txt',
+# run time tests are currently borked. This was confirmed.
+#
 for d: dir{tests/**/source/ -tests/run_time/source/}
 {
   t = $name($directory($d))

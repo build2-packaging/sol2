@@ -19,7 +19,7 @@ for d: dir{examples/**/source/ -examples/interop/**/source/}
 exe{require_dll_example}: examples/require_dll_example/include/hxx{**}
 {
   cxx.poptions += "-I$src_base/examples/require_dll_example/include"
-# this test crashes
+  # this test crashes
   test = false
   install = false
 }
