@@ -4,15 +4,24 @@ import libs = lua%lib{lua}
 
 # Headers and Sources
 #
-lib{sol2}: patches/sol/{hxx h}{**} sol/{hxx h}{** -function_types_stateless} $libs
-lib{sol2}: sol/hxx{function_types_stateless}: include = false
+lib{sol2}: sol/{hxx h}{** -function_types_stateless} $libs
 
 # Workaround for Clang 18 bug has been applied to the
 # hard-copied `sol/function_types_stateless.hpp` file.
 #
 # See: https://github.com/ThePhD/sol2/issues/1581
 #
-lib{sol2}: patches/sol/file{function_types_stateless.hpp.orig}
+lib{sol2}: sol/hxx{function_types_stateless}:
+{
+  include = false
+  install = false
+}
+lib{sol2}: patches/sol/hxx{function_types_stateless}
+patches/sol/hxx{function_types_stateless}@./patches/sol/:
+{
+  install         = include/sol/
+  install.subdirs = true
+}
 
 # Build options.
 #
