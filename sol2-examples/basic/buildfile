@@ -11,24 +11,24 @@ for t: examples/source/cxx{*}
 # interop/ tests require external libraries
 for d: dir{examples/**/source/ -examples/interop/**/source/}
 {
-  t = $name($directory($d))
-  root = $directory($d)/source/
-  ./: exe{$t}: $root/{hxx cxx}{**} $libs testscript
+  root = $directory($d)
+  t = $name($root)
+  ./: exe{$t}: $root/source/cxx{**} $root/include/hxx{**} \
+               $libs testscript
+  cxx.poptions += "-I$src_base/$root/include"
 }
 
-exe{require_dll_example}: examples/require_dll_example/include/hxx{**}
+# this test crashes
+exe{require_dll_example}:
 {
-  cxx.poptions += "-I$src_base/examples/require_dll_example/include"
-  # this test crashes
-  test = false
+  test    = false
   install = false
 }
 
-exe{customization}: examples/customization/include/hxx{**}
+# this test crashes
+exe{customization}:
 {
-  cxx.poptions += "-I$src_base/examples/customization/include"
-  # this test crashes
-  test = false
+  test    = false
   install = false
 }
 

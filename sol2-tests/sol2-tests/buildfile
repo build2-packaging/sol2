@@ -7,9 +7,11 @@ import libs = \
 #
 for d: dir{tests/**/source/ -tests/run_time/source/}
 {
-  t = $name($directory($d))
-  root = $directory($d)/source/
-  ./: exe{$t}: $root/{hxx cxx}{*} tests/run_time/source/hxx{sol_test} $libs testscript
+  root = $directory($d)
+  t = $name($root)
+  ./: exe{$t}: $root/source/cxx{**} tests/run_time/source/hxx{sol_test} \
+               $libs testscript
+  cxx.poptions += "-I$src_base/$root/include"
 }
 
 tests/config_tests/function_pointers/obj{*}:
