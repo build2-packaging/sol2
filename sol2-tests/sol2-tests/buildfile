@@ -12,12 +12,12 @@ for d: dir{tests/**/source/ -tests/run_time/source/}
   ./: exe{$t}: $root/{hxx cxx}{*} tests/run_time/source/hxx{sol_test} $libs testscript
 }
 
-exe{function_pointers}:
+tests/config_tests/function_pointers/obj{*}:
 {
   cxx.poptions += -DSOL_GET_FUNCTION_POINTER_UNSAFE=1
 }
 
-exe{integer_value_fits}:
+tests/config_tests/integer_value_fits/obj{*}:
 {
   cxx.poptions += -DSOL_ALL_INTEGER_VALUES_FIT=1
 }

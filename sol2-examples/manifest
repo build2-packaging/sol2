@@ -1,6 +1,6 @@
 : 1
 name: sol2-examples
-version: 3.5.0
+version: 3.5.0+1
 type: exe
 language: c++
 project: sol2
