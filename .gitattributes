@@ -20,5 +20,6 @@
 
 # See: https://build2.org/article/symlinks.xhtml#windows
 #
+sol2/sol2/sol symlink=dir
 sol2-examples/basic/examples symlink=dir
 sol2-tests/sol2-tests/tests symlink=dir
