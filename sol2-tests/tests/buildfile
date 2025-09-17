@@ -9,9 +9,7 @@ for d: dir{tests/**/source/ -tests/run_time/source/}
 {
   root = $directory($d)
   t = $name($root)
-  ./: exe{$t}: $root/source/cxx{**} tests/run_time/source/hxx{sol_test} \
-               $libs testscript
-  cxx.poptions += "-I$src_base/$root/include"
+  ./: exe{$t}: $root/source/cxx{**} $libs
 }
 
 tests/config_tests/function_pointers/obj{*}:
@@ -24,7 +22,6 @@ tests/config_tests/integer_value_fits/obj{*}:
   cxx.poptions += -DSOL_ALL_INTEGER_VALUES_FIT=1
 }
 
-cxx.poptions += "-I$src_base/tests/run_time/source"
 cxx.poptions += -DSOL_PRINT_ERRORS=1 -DSOL_ALL_SAFETIES_ON=1
 
 if ($cxx.target.system != 'win32-msvc')
