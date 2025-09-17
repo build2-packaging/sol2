@@ -50,4 +50,5 @@
 # Allow specific symbolic links to directories.
 #
 !sol2/sol2/sol
+!sol2-examples/basic/source
 !sol2-tests/inclusion/source

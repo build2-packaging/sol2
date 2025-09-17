@@ -1,35 +1,9 @@
-import libs = \
-  sol2%lib{sol2} \
-  catch2%lib{catch2}
+import libs = sol2%lib{sol2}
 
-for t: examples/source/cxx{*}
+for t: source/cxx{*}
 {
   n = $name($t)
   ./: exe{$n}: $t $libs testscript
-}
-
-# interop/ tests require external libraries
-for d: dir{examples/**/source/ -examples/interop/**/source/}
-{
-  root = $directory($d)
-  t = $name($root)
-  ./: exe{$t}: $root/source/cxx{**} $root/include/hxx{**} \
-               $libs testscript
-  cxx.poptions += "-I$src_base/$root/include"
-}
-
-# this test crashes
-exe{require_dll_example}:
-{
-  test    = false
-  install = false
-}
-
-# this test crashes
-exe{customization}:
-{
-  test    = false
-  install = false
 }
 
 cxx.poptions += -DSOL_PRINT_ERRORS=1 -DSOL_ALL_SAFETIES_ON=1
