@@ -5,11 +5,11 @@ import libs = \
 # According to 'upstream/tests/run_time/CMakeLists.txt',
 # run time tests are currently borked. This was confirmed.
 #
-for d: dir{tests/**/source/ -tests/run_time/source/}
+for d: dir{tests/**/source/ -tests/run_time/source/ -tests/utility/source/}
 {
   root = $directory($d)
   t = $name($root)
-  ./: exe{$t}: $root/source/cxx{**} $libs
+  ./: exe{$t}: $root/source/cxx{**} $libs testscript
 }
 
 tests/config_tests/function_pointers/obj{*}:
