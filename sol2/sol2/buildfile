@@ -1,6 +1,6 @@
 # Dependencies
 #
-import libs = lua%lib{lua}
+import libs = liblua%lib{lua}
 
 # Patches
 #
