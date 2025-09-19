@@ -1,6 +1,6 @@
 # build2 Package Repository for sol2
 
-This is a [build2](https://build2.org) package repository for [sol2](https://github.com/ThePhD/sol2), a C++ library binding to Lua.
+This is a [build2](https://build2.org) package repository for [sol2](https://github.com/ThePhD/sol2), a modern C++ wrapper that enables easy and safe interaction with the Lua C API.
 
 This repository is a community-maintained effort and is not officially endorsed by the sol2 authors.
 
@@ -46,16 +46,14 @@ Inside the repository's directory, initialize your build configuration.
 Afterwards, use `b` or `bdep` to build, test, install, and distribute the packages.
 
 ## Issues and Notes
-- **Packaging & Configuration:**
-    - `sol2` is a header-only library, but its behavior can be modified with preprocessor directives. These are not exposed as `build2` configuration variables, so consumers are responsible for ensuring a consistent configuration if multiple packages in a project depend on `sol2`.
-    - The `sol2-examples` package is provided separately from the main `sol2` package to reduce the overall archive size. It serves as both an example and a test case.
-    - Examples from the upstream `customization` and `interop` directories are not yet included in the `sol2-examples` package.
-
-- **Known Bugs & Workarounds:**
-    - **Clang 18 Bug:** A bug in Clang 18 prevents the tests and examples from compiling successfully. A workaround from [sol2/issues/1581](https://github.com/ThePhD/sol2/issues/1581) has been applied to `sol/function_types_stateless.hpp`. The original file is preserved as `sol/function_types_stateless.hpp.orig`.
-
-- **Scope & Future Work:**
-    - This package does not currently support LuaJIT, as a `build2` package for it is not yet available in the public `cppget.org` repository.
+- This package repository uses directory-level symlinks to the upstream source files, rather than linking to each file individually. While this approach seemingly simplifies package updates, it significantly increases the complexity of the `buildfile` logic. This structure was introduced during a past version update and has been retained to avoid further disruptive changes to the build system. Note that any changes to the directory symlinks must also be updated in `.gitignore` and `.gitattributes`.
+- `sol2` is a header-only library, but its behavior can be modified with preprocessor directives. These are not exposed as `build2` configuration variables, so consumers are responsible for ensuring a consistent configuration if multiple packages in a project depend on `sol2`.
+- Upstream `sol2` provides a single-header version of the library for convenient manual integration. This package intentionally uses the original multi-file source structure, as the primary benefit of a single header is made redundant by `build2`'s package and dependency management.
+- The `sol2-examples` package is provided separately from the main `sol2` package to reduce the overall archive size. It serves as both an example and a test case.
+- This package does not currently support LuaJIT, as a `build2` package for it is not yet available in the public `cppget.org` repository.
+- Examples from the upstream `customization` and `interop` directories are not yet included in the `sol2-examples` package.
+- A bug in Clang 18 prevents the tests and examples from compiling successfully. A workaround from [sol2/issues/1581](https://github.com/ThePhD/sol2/issues/1581) has been applied to `sol/function_types_stateless.hpp`, with the original file preserved as `sol/function_types_stateless.hpp.orig`. This bug is fixed in recent Clang versions. Remove this patch once CI provides newer Clang builds.
+- When using the Clang/MSVC toolchain on Windows, the `numeric` test fails by abnormal termination. This suggests a potential incompatibility between sol2 and this specific compiler toolchain.
 
 ## Contributing
 Contributions are welcome and greatly appreciated!
