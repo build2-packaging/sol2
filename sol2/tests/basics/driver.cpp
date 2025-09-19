@@ -63,7 +63,7 @@ int main() {
 		}
 		else {
 			sol::error err = result;
-			std::cout << "the fourth script failed, which was intentional!\t\nError: " << err.what() << std::endl;
+			std::cout << "the fourth script failed, which was intentional!\n  Error: " << err.what() << std::endl;
 		}
 	}
 

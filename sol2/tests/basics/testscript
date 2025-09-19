@@ -1,0 +1,10 @@
+$* >>EOO == 0
+=== basic ===
+hello world
+hello again, world
+hello hello again, world
+the third script worked, and a double-hello statement should appear above this one!
+the fourth script failed, which was intentional!
+  Error: [string "does.not.exist"]:1: <name> expected near 'not'
+TESTS - OK
+EOO
