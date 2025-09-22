@@ -1,12 +1,11 @@
-import libs = sol2%lib{sol2}
-
-for t: source/cxx{*}
+for x: cxx{**}
 {
-  n = $name($t)
-  ./: exe{$n}: $t $libs testscript
+  # Prevent build targets from being backlinked
+  # into the symlinked 'source/' directory.
+  # We construct a parallel target directory tree to keep all targets
+  # separate from the upstream source code during package development.
+  #
+  d = $relative($directory($x), [dir_path] source/)
+  n = $name($x)
+  ./: $d/exe{$n}: $x $sol2 testscript
 }
-
-cxx.poptions += -DSOL_PRINT_ERRORS=1 -DSOL_ALL_SAFETIES_ON=1
-
-if ($cxx.target.system != 'win32-msvc')
-  cxx.libs += -pthread

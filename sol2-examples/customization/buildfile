@@ -1,9 +1,3 @@
-import libs = sol2%lib{sol2}
-
-exe{customization}: include/hxx{**} source/cxx{**} $libs testscript
+exe{customization}: include/hxx{**} source/cxx{**} $sol2 testscript
 
 cxx.poptions =+ "-I$src_base/include"
-cxx.poptions += -DSOL_PRINT_ERRORS=1 -DSOL_ALL_SAFETIES_ON=1
-
-if ($cxx.target.system != 'win32-msvc')
-  cxx.libs += -pthread
