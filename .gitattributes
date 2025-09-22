@@ -22,4 +22,6 @@
 #
 sol2/sol2/sol symlink=dir
 sol2-examples/basic/source symlink=dir
+sol2-examples/customization/include symlink=dir
+sol2-examples/customization/source symlink=dir
 sol2-tests/tests/tests symlink=dir

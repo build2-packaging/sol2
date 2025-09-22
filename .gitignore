@@ -51,4 +51,6 @@
 #
 !sol2/sol2/sol
 !sol2-examples/basic/source
+!sol2-examples/customization/include
+!sol2-examples/customization/source
 !sol2-tests/tests/tests
