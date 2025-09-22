@@ -52,7 +52,7 @@ Afterwards, use `b` or `bdep` to build, test, install, and distribute the packag
 - The `run_time` and `utility` tests are not included in the `sol2-tests` package. According to upstream's `CMakeLists.txt`, enabling the `run_time` tests requires including a set of known-broken tests. The `utility` tests are therefore also excluded due to their dependency on the `run_time` test sources.
 - The `sol2-examples` package is provided separately from the main `sol2` package to reduce the overall archive size. It serves as both an example and a test case.
 - This package does not currently support LuaJIT, as a `build2` package for it is not yet available in the public `cppget.org` repository.
-- Examples from the upstream `customization` and `interop` directories are not yet included in the `sol2-examples` package.
+- Examples from the upstream `interop` and `require_dll_example` directories are excluded from the `sol2-examples` package. This is due to their more complex build requirements, such as dependencies on other libraries or the need for special configurations.
 - A bug in Clang 18 prevents the tests and examples from compiling successfully. A workaround from [sol2/issues/1581](https://github.com/ThePhD/sol2/issues/1581) has been applied to `sol/function_types_stateless.hpp`, with the original file preserved as `sol/function_types_stateless.hpp.orig`. This bug is fixed in recent Clang versions. Remove this patch once CI provides newer Clang builds.
 - When using the Clang/MSVC toolchain on Windows, the `numeric` test fails by abnormal termination. This suggests a potential incompatibility between sol2 and this specific compiler toolchain.
 
