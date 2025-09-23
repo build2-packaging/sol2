@@ -9,7 +9,7 @@ for src: cxx{**}
   #
   d = $relative($directory($src), [dir_path] source/)
   n = $name($src)
-  t = $string.replace($d/$n, '/', '-')
+  t = $regex.replace($d/$n, '[/\\]', '-')
   text $t
   ./: exe{$t}: $src $sol2 testscript
 }

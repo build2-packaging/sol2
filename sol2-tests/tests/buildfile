@@ -20,7 +20,7 @@ for src: dir{tests/**/source/ -tests/run_time/source/ -tests/utility/source/}
   d = $directory($src)
   p = $relative($directory($d), [dir_path] tests/)
   n = $name($d)
-  t = $string.replace($p/$n, '/', '-')
+  t = $regex.replace($p/$n, '[/\\]', '-')
   text $t
   ./: exe{$t}: $d/source/cxx{**} $libs testscript
 }
