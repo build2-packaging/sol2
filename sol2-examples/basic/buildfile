@@ -1,11 +1,15 @@
-for x: cxx{**}
+for src: cxx{**}
 {
-  # Prevent build targets from being backlinked
-  # into the symlinked 'source/' directory.
-  # We construct a parallel target directory tree to keep all targets
-  # separate from the upstream source code during package development.
+  # Prevent pollution of the symlinked upstream `source` directory and
+  # flatten exe paths to create unique target names in this directory
+  # (e.g., 'x/y/z' becomes 'x-y-z').
+  # A naive approach of building to a parallel directory tree (e.g., 'bin/')
+  # is problematic because the directories created by build system during
+  # package development in the source tree are not removed by 'b clean'.
   #
-  d = $relative($directory($x), [dir_path] source/)
-  n = $name($x)
-  ./: $d/exe{$n}: $x $sol2 testscript
+  d = $relative($directory($src), [dir_path] source/)
+  n = $name($src)
+  t = $string.replace($d/$n, '/', '-')
+  text $t
+  ./: exe{$t}: $src $sol2 testscript
 }
