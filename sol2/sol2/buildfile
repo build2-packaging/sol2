@@ -1,45 +1,64 @@
 # Dependencies
 #
-import libs = lua%lib{lua}
+import libs = liblua%lib{lua}
 
-# Headers and Sources
+# Patches
 #
-lib{sol2}: sol/{hxx h}{** -function_types_stateless} $libs
+# The `patches/` directory reconstructs the upstream `include/` layout.
+# This ensures correct include behavior during development and consumption.
+# Patches are listed without extension relative to the `sol/` directory.
+#
+hxx_patches = # Empty
 
-# Workaround for Clang 18 bug has been applied to the
-# hard-copied `sol/function_types_stateless.hpp` file.
+# Workaround for a Clang 18 bug applied to the
+# hard-copied `sol/function_types_stateless.hpp`.
+# This bug is fixed in recent Clang versions.
+# Remove this patch once CI provides newer Clang builds.
 #
 # See: https://github.com/ThePhD/sol2/issues/1581
 #
-lib{sol2}: sol/hxx{function_types_stateless}:
-{
-  include = false
-  install = false
-}
-lib{sol2}: patches/sol/hxx{function_types_stateless}
-patches/sol/hxx{function_types_stateless}@./patches/sol/:
-{
-  install         = include/sol/
-  install.subdirs = true
-}
+hxx_patches += function_types_stateless
 
-# Build options.
+# Include all patches in the package distribution for consistency.
 #
-# Note:
-# ./patches/ must come first for correct include priority
-cxx.poptions =+ "-I$src_base/patches" "-I$src_base"
+for patch : $hxx_patches
+  ./: patches/sol/file{$(patch).hpp.orig}
 
-# Export options.
+# Headers
 #
+# Exclude header files that have been patched to prevent unpatched
+# files from being included during installation or distribution.
+# Patched headers are then explicitly added from the `patches/` directory.
+#
+./: lib{sol2}: sol/h{**} \
+  sol/hxx{** -{$hxx_patches}} \
+  patches/sol/hxx{$hxx_patches} \
+  $libs
+
+# Build and Export Options
+#
+# Ensure the `patches/` directory comes first
+# to maintain correct include order.
+#
+poptions = "-I$src_base/patches" "-I$src_base"
+cxx.poptions =+ $poptions
 lib{sol2}:
 {
-  cxx.export.poptions = "-I$src_base/patches" "-I$src_base"
+  cxx.export.poptions = $poptions
   cxx.export.libs = $libs
 }
 
 # Installation
 #
+# Install patched headers alongside the
+# original headers in the include directory.
+#
 {hxx h}{*}:
+{
+  install         = include/
+  install.subdirs = true
+}
+patches/{hxx h}{*}:
 {
   install         = include/
   install.subdirs = true

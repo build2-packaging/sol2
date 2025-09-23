@@ -1,0 +1,3 @@
+exe{customization}: include/hxx{**} source/cxx{**} $sol2 testscript
+
+cxx.poptions =+ "-I$src_base/include"

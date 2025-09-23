@@ -1,0 +1,40 @@
+# Dependencies
+#
+import libs = \
+  sol2%lib{sol2} \
+  catch2%lib{catch2}
+
+# According to 'upstream/tests/run_time/CMakeLists.txt',
+# run time tests are currently borked. This was confirmed.
+# The `utility` tests depend on headers from `run_time` tests.
+#
+for src: dir{tests/**/source/ -tests/run_time/source/ -tests/utility/source/}
+{
+  # Prevent pollution of the symlinked upstream `tests` directory and
+  # flatten test paths to create unique target names in this directory
+  # (e.g., 'x/y/z' becomes 'x-y-z').
+  # A naive approach of building to a parallel directory tree (e.g., 'bin/')
+  # is problematic because the directories created by build system during
+  # package development in the source tree are not removed by 'b clean'.
+  #
+  d = $directory($src)
+  p = $relative($directory($d), [dir_path] tests/)
+  n = $name($d)
+  t = $regex.replace($p/$n, '[/\\]', '-')
+  ./: exe{$t}: $d/source/cxx{**} $libs testscript
+}
+
+tests/config_tests/function_pointers/obj{*}:
+{
+  cxx.poptions += -DSOL_GET_FUNCTION_POINTER_UNSAFE=1
+}
+
+tests/config_tests/integer_value_fits/obj{*}:
+{
+  cxx.poptions += -DSOL_ALL_INTEGER_VALUES_FIT=1
+}
+
+cxx.poptions += -DSOL_PRINT_ERRORS=1 -DSOL_ALL_SAFETIES_ON=1
+
+if ($cxx.target.system != 'win32-msvc')
+  cxx.libs += -pthread

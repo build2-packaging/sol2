@@ -4,6 +4,13 @@
 #include <sol/sol.hpp>
 
 #include <iostream>
+
+// Ensure `NDEBUG` macro is not defined even in `NDEBUG`-enabled
+// builds to not disable assertion functionality in our smoke test.
+//
+// See: https://github.com/build2/HOWTO/blob/master/entries/use-assert-in-tests.md
+//
+#undef NDEBUG
 #include <cassert>
 
 int main() {
@@ -56,7 +63,7 @@ int main() {
 		}
 		else {
 			sol::error err = result;
-			std::cout << "the fourth script failed, which was intentional!\t\nError: " << err.what() << std::endl;
+			std::cout << "the fourth script failed, which was intentional!\n  Error: " << err.what() << std::endl;
 		}
 	}
 

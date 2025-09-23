@@ -1,38 +1,14 @@
-import libs = \
-  sol2%lib{sol2} \
-  catch2%lib{catch2}
-
-for t: examples/source/cxx{*}
+for src: cxx{**}
 {
-  n = $name($t)
-  ./: exe{$n}: $t $libs testscript
+  # Prevent pollution of the symlinked upstream `source` directory and
+  # flatten exe paths to create unique target names in this directory
+  # (e.g., 'x/y/z' becomes 'x-y-z').
+  # A naive approach of building to a parallel directory tree (e.g., 'bin/')
+  # is problematic because the directories created by build system during
+  # package development in the source tree are not removed by 'b clean'.
+  #
+  d = $relative($directory($src), [dir_path] source/)
+  n = $name($src)
+  t = $regex.replace($d/$n, '[/\\]', '-')
+  ./: exe{$t}: $src $sol2 testscript
 }
-
-# interop/ tests require external libraries
-for d: dir{examples/**/source/ -examples/interop/**/source/}
-{
-  root = $directory($d)
-  t = $name($root)
-  ./: exe{$t}: $root/source/cxx{**} $root/include/hxx{**} \
-               $libs testscript
-  cxx.poptions += "-I$src_base/$root/include"
-}
-
-# this test crashes
-exe{require_dll_example}:
-{
-  test    = false
-  install = false
-}
-
-# this test crashes
-exe{customization}:
-{
-  test    = false
-  install = false
-}
-
-cxx.poptions += -DSOL_PRINT_ERRORS=1 -DSOL_ALL_SAFETIES_ON=1
-
-if ($cxx.target.system != 'win32-msvc')
-  cxx.libs += -pthread

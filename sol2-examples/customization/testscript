@@ -1,0 +1,11 @@
+$* >>EOO == 0
+=== customization: vec3 as table ===
+registering entities into Lua ...
+running script ...
+pos type	table
+pos	1.0	1.0	1.0
+pos	1.0	1.0	1.0
+new_pos	52.0	5.5	47.5
+finishing ...
+
+EOO

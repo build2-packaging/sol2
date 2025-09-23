@@ -1,1 +1,1 @@
-../README.md
+../sol2/PACKAGE-README.md
